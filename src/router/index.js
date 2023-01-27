@@ -14,6 +14,12 @@ const router = createRouter({
       name: 'Watch Movie Online',
       component: ()=> import('@/views/WatchMoviePage.vue')
 
+    },
+    {
+      path: '/login',
+      name: 'Login page',
+      component: ()=> import('@/views/LoginPage.vue')
+
     }
   ]
 })

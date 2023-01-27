@@ -17,7 +17,7 @@
                 <router-link class="nav-link active text-white" aria-current="page" to="/">Home</router-link>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="#">Link</a>
+                <router-link class="nav-link text-white" to="login">Kirish</router-link>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"

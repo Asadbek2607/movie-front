@@ -1,17 +1,17 @@
 <script>
 import HeaderRow from "@/components/HeaderRow.vue";
-import CatalogSidebar from "@/components/CatalogSidebar.vue";
+import CategorySidebar from "@/components/CategorySidebar.vue";
 import FooterRow from "@/components/FooterRow.vue";
 import HomePage from "@/views/HomePage.vue";
 import MovieInfoPage from "@/views/WatchMoviePage.vue";
 
 export default {
-  components: {MovieInfoPage, HomePage, FooterRow, CatalogSidebar, HeaderRow}
+  components: {MovieInfoPage, HomePage, FooterRow, CategorySidebar, HeaderRow}
 }
 </script>
 
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid d-flex flex-column min-vh-100">
 
     <!-- Header section -->
     <HeaderRow/>
@@ -19,7 +19,7 @@ export default {
 
     <div class="row gap-1 gap-xl-0">
       <!-- Sidebar -->
-      <CatalogSidebar/>
+      <CategorySidebar/>
       <!--Sidebar END-->
 
       <!-- Content Start-->
