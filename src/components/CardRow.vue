@@ -1,7 +1,7 @@
 <template>
 
   <div class="col mt-3 mb-5 rounded d-flex flex-wrap" style="background-color: #81878d;">
-  
+
     <div
         class="col-12 col-md-6 col-lg-4 col-xl-3 mt-0 p-3"
         v-for="movie of getMovies"

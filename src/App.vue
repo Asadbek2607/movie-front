@@ -17,16 +17,13 @@ export default {
     <HeaderRow/>
     <!-- Header section end -->
 
-    <div class="row gap-1 gap-xl-0">
-      <!-- Sidebar -->
-      <CategorySidebar/>
-      <!--Sidebar END-->
+
 
       <!-- Content Start-->
       <RouterView/>
       <!-- Content END -->
 
-    </div>
+
     <!--Footer start-->
     <FooterRow/>
     <!--Footer End-->

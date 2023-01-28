@@ -4,7 +4,7 @@ export default{
     actions:{
         fetchCategories(context){
             return new Promise((resolve,reject)=>{
-                axios.get('http://localhost:8505/api/category')
+                axios.get('http://localhost:8505/api/categories')
                     .then((response)=>{
                         console.log("category'lar olindi")
                         console.log(response)

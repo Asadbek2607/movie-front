@@ -1,8 +1,8 @@
 <template>
-  <main class="col-12 col-xl-6 p-0 mt-4">
-    <div class="row m-0">
-      <div class="col-8 bg-light rounded ms-5">
-        <form @submit.prevent="auth">
+  <main class="col-12 p-0 mt-4 ">
+    <div class="row m-0 justify-content-center">
+      <div class="col-4 bg-light rounded ">
+        <form @submit.prevent="auth" >
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
             <input

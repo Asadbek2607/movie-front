@@ -17,7 +17,7 @@
                 <router-link class="nav-link active text-white" aria-current="page" to="/">Home</router-link>
               </li>
               <li class="nav-item">
-                <router-link class="nav-link text-white" to="login">Kirish</router-link>
+                <router-link class="nav-link text-white" to="login">Login</router-link>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
@@ -34,7 +34,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled">Link</a>
+                <router-link to="addMovie" class="nav-link text-white">Add Movie</router-link>
               </li>
             </ul>
             <form class="d-flex" role="search">
