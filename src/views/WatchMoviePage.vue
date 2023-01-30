@@ -8,7 +8,7 @@
               allowfullscreen></iframe>
     </div>
   </main>
-
+  <CardRow/>
 </template>
 
 <script>

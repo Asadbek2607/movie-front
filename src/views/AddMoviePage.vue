@@ -9,13 +9,19 @@
         <label for="description">Description</label>
         <textarea class="form-control" id="description" v-model="form.description" required></textarea>
       </div>
+      <div class="form-group mb-3">
+        <label for="year">Year</label>
+        <input class="form-control" @input="restrictYearInput" type="number" id="year"  v-model="form.year" required min="1800" max="2023">
+      </div>
       <div class="form-group mb-5">
         <label for="category">Category</label>
         <select class="form-control form-select" v-model="form.category" id="category">
-          <option v-for="category of getCategories" :value="'api/categories/'+category.id" :key="category.id">{{ category.name }}</option>
+          <option v-for="category of getCategories" :value="'api/categories/' + category.id" :key="category.id">{{
+            category.name
+          }}</option>
         </select>
       </div>
-      <button  class="btn btn-primary">Add Movie</button>
+      <button class="btn btn-primary">Add Movie</button>
     </form>
     <div class="alert alert-success mt-5" role="alert" v-if="showSuccessAlert">
       Movie added successfully—check it out!
@@ -23,7 +29,7 @@
   </div>
 </template>
 <script>
-import {mapActions, mapGetters} from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 
 export default {
@@ -34,32 +40,39 @@ export default {
       form: {
         name: '',
         description: '',
+        year: '',
         category: ''
       }
     }
   },
   computed: {
-    ...mapGetters(['getCategories'])
+    ...mapGetters(['getCategories']),
   },
   methods: {
     ...mapActions(['fetchCategories', 'addMovie']),
+    
+    submit() {
+      this.addMovie(this.form)
+        .then(() => {
+          
+          //show success message
+          this.showSuccessAlert = true;
+          setTimeout(() => {
+            this.showSuccessAlert = false;
+          }, 3000);
+          this.form = {
+            name: '',
+            description: '',
+            category: '',
+            year: ''
+          }
 
-      submit(){
-        this.addMovie(this.form)
-            .then(()=>{
-              //show success message
-              this.showSuccessAlert = true;
-              setTimeout(() => {
-                this.showSuccessAlert = false;
-              }, 3000);
-              this.$refs.form.reset()
-
-            })
-            .catch(()=>{
-              alert('Error adding movie')
-            })
-      }
-    },
+        })
+        .catch(() => {
+          alert('Error adding movie')
+        })
+    }
+  },
 
   mounted() {
     this.fetchCategories()

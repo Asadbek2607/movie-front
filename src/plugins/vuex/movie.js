@@ -2,9 +2,15 @@ import axios from "@/plugins/vuex/axios";
 
 export default {
     actions: {
-        fetchMovies(context) {
+        fetchMovies(context, categoryId=null) {
+            let categoryUrl =''
+
+            if (categoryId) {
+                categoryUrl = '?category=' + categoryId
+            }
+            
             return new Promise((resolve, reject) => {
-                axios.get('http://localhost:8505/api/movies')
+                axios.get('http://localhost:8505/api/movies' + categoryUrl)
                     .then((response) => {
                         console.log('Kinolar olindi')
                         console.log(response)
@@ -33,7 +39,9 @@ export default {
                         console.log('Movie added successfully')
                         console.log(response.data.movies)
                         resolve()
-                        context.dispatch('showSuccessAlert').then(r => {})
+                        context.dispatch('showSuccessAlert').then(r => {
+                         
+                        })
 
                     })
                     .catch((error) => {
@@ -47,6 +55,28 @@ export default {
             context.commit('setSuccessAlert', true)
         },
 
+        // Filter movies by name
+        filterMoviesByName(context, name) {
+            return new Promise((resolve, reject) => {
+                axios.get(`http://localhost:8505/api/movies?name=${name}`)
+                    .then((response) => {
+                        let filteredMovies = {
+                            models: response.data['hydra:member'],
+                            totalItems: response.data['hydra:totalItems']
+                        };
+        
+                        context.commit('updateMovies', filteredMovies);
+                        resolve();
+                    })
+                    .catch((error) => {
+                        console.log('Error filtering movies by name');
+                        console.log(error);
+                        reject();
+                    });
+            });
+        },
+        
+
     },
     mutations: {
         updateMovies(state, movies) {
@@ -54,6 +84,9 @@ export default {
         },
         addMovie(state, movie) {
             state.movies.models.push(movie)
+        },
+        updateFilteredMovies(state, filteredMovies) {
+            state.filteredMovies = filteredMovies;
         },
         setSuccessAlert(state, value) {
             state.showSuccessAlert = value
@@ -64,11 +97,18 @@ export default {
         movies: {
             models: [],
             totalItems: 0,
+        },
+        filteredMovies: {
+            models: [],
+            totalItems: 0,
         }
     },
     getters: {
         getMovies(state) {
             return state.movies.models
+        },
+        getFilteredMovies(state) {
+            return state.filteredMovies.models;
         }
     }
 }

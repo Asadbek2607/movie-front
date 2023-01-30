@@ -1,12 +1,9 @@
 <script>
 import HeaderRow from "@/components/HeaderRow.vue";
-import CategorySidebar from "@/components/CategorySidebar.vue";
 import FooterRow from "@/components/FooterRow.vue";
-import HomePage from "@/views/HomePage.vue";
-import MovieInfoPage from "@/views/WatchMoviePage.vue";
 
 export default {
-  components: {MovieInfoPage, HomePage, FooterRow, CategorySidebar, HeaderRow}
+  components: {FooterRow,  HeaderRow},
 }
 </script>
 
