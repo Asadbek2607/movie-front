@@ -34,7 +34,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <router-link to="/addMovie" class="nav-link text-white">Add Movie</router-link>
+                <router-link to="/add-movie" class="nav-link text-white">Add Movie</router-link>
               </li>
             </ul>
             <form class="d-flex" role="search" @submit.prevent="filterMovies">
@@ -61,13 +61,13 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['getMovies', 'getCategories','getFilteredMovies']),
+    ...mapGetters(['getMovies', 'getCategories', 'getFilteredMovies']),
   },
   methods: {
     ...mapActions(['fetchMovies', 'fetchCategories', 'filterMoviesByName']),
-     filterMovies() {
+    filterMovies() {
       this.$store.dispatch('filterMoviesByName', this.searchTerm);
-      
+
     }
   }
 }

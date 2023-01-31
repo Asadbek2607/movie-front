@@ -33,7 +33,7 @@ const router = createRouter({
 
     },
     {
-      path: '/addMovie',
+      path: '/add-movie',
       name: 'Add movie page',
       component: ()=> import('@/views/AddMoviePage.vue')
 
