@@ -5,7 +5,6 @@ export default {
         // Fetch movies from database and update movies list in store state
         fetchMovies(context, categoryId = null) {
             let categoryUrl = ''
-
             if (categoryId) {
                 categoryUrl = '?category=' + categoryId
             }
@@ -16,6 +15,7 @@ export default {
                         console.log('Kinolar olindi')
                         console.log(response)
 
+                        // create movies object to get movies data from response
                         let movies = {
                             models: response.data['hydra:member'],
                             totalItems: response.data['hydra: totalItems']
@@ -31,6 +31,7 @@ export default {
                     })
             })
         },
+
         // Add movie to database and update movies list in store state 
         addMovie(context, data) {
             return new Promise((resolve, reject) => {
@@ -53,11 +54,43 @@ export default {
             context.commit('setSuccessAlert', true)
         },
 
+        // get one movie by id 
+        fetchMovie(context, movieId) {
+            return new Promise((resolve, reject) => {
+                axios.get('http://localhost:8505/api/movies/' + movieId)
+                    .then((response) => {
+
+                        // create movie object to get movie data from response 
+                        let movie={
+                            id: response.data.id,
+                            name: response.data.name,
+                            description: response.data.description,
+                            category: response.data.category,
+                            year: response.data.year,
+                            categoryName: response.data.category.name
+                            
+                        }
+                        console.log('Movie fetched successfully')
+                        console.log(response.data)
+                        // commit addMovie mutation and pass 'movie' object as payload
+                        context.commit('getMovie', movie)
+                        resolve()
+                    })
+                    .catch((error) => {
+                        console.log('Error fetching movie '+error)
+                        reject()
+                    })
+            })
+        },
+
+
         // Filter movies by name
         filterMoviesByName(context, name) {
             return new Promise((resolve, reject) => {
                 axios.get(`http://localhost:8505/api/movies?name=${name}`)
                     .then((response) => {
+
+                        // create filteredMovies object to get filtered movies data from response
                         let filteredMovies = {
                             models: response.data['hydra:member'],
                             totalItems: response.data['hydra:totalItems']
@@ -85,6 +118,10 @@ export default {
         addMovie(state, movie) {
             state.movie = movie
         },
+        // Get one movie by id
+        getMovie(state, movie) {
+            state.movie = movie
+        },
         // Update filtered movies list in store state
         updateFilteredMovies(state, filteredMovies) {
             state.filteredMovies = filteredMovies;
@@ -95,17 +132,18 @@ export default {
 
     },
     state: {
-        // Movies list
+        // Movies list 
         movies: {
             models: [],
             totalItems: 0,
         },
         // Movie object to add to database 
         movie:{
-            name: null,
+            name: 'null',
             description: null,
             category: null,
-            year: null
+            year: null,
+            
         },
         // Filtered movies list
         filteredMovies: {

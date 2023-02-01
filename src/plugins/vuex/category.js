@@ -9,6 +9,7 @@ export default{
                         console.log("category'lar olindi")
                         console.log(response)
 
+                        // get member and the totalItems property from the response data and save them in the categories object  
                         let categories = {
                             models: response.data['hydra:member'],
                             totalItems : response.data['hydra: totalItems']

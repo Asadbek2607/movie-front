@@ -1,22 +1,22 @@
 <template>
-    
-        <div class="row mt-5 justify-content-center">
-            <div class="col-3 col-xl-4 p-5 bg-light rounded">
-                <form @submit.prevent="auth">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label text-success">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            v-model="form.email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label text-success">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" v-model="form.password">
-                    </div>
-                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                </form>
-            </div>
+
+    <div class="row mt-5 justify-content-center ">
+        <div class="col-10 col-6 col-xl-4 p-5 rounded customBg">
+            <form @submit.prevent="auth" class="d-flex flex-column">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label text-white">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        v-model="form.email">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label text-white">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" v-model="form.password">
+                </div>
+                <button type="submit" class="btn btn-dark mt-3 mx-auto">Submit</button>
+            </form>
         </div>
-   
+    </div>
+
 
 
 </template>
@@ -50,5 +50,9 @@ export default {
 </script>
 
 <style scoped>
-
+.customBg {
+    background-color: #848B92;
+    background-image: url("../../public/img/dark-denim-3.png");
+   
+}
 </style>

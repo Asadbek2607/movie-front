@@ -5,7 +5,7 @@
 
       <div class="row m-0">
 
-        <div class="col bg-secondary rounded">
+        <div class="col bg-secondary rounded mb-5">
 
           <CardRow/>
           <PaginationRow/>
