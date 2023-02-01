@@ -139,7 +139,7 @@ export default {
         },
         // Movie object to add to database 
         movie:{
-            name: 'null',
+            name: null,
             description: null,
             category: null,
             year: null,
