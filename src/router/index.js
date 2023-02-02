@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from "@/views/HomePage.vue";
-import FilterPage from "@/views/HomePage.vue";
+import FilterPage from "@/views/FilterPage.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,7 +13,7 @@ const router = createRouter({
         {
             path: '/categories/:id',
             name: 'filter',
-            component: FilterPage
+            component: HomePage
         },
         {
             path: '/search/:searchTerm',
@@ -37,6 +37,12 @@ const router = createRouter({
             path: '/add-movie',
             name: 'Add movie page',
             component: () => import('@/views/AddMoviePage.vue')
+
+        },
+        {
+            path: '/remove-movie',
+            name: 'Remove movie page',
+            component: () => import('@/views/RemoveMoviePage.vue')
 
         }
     ]

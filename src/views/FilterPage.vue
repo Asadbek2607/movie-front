@@ -7,7 +7,7 @@
 
         <div class="col bg-secondary rounded">
 
-          <CardRow/>
+          
           <PaginationRow/>
         </div>
       </div>

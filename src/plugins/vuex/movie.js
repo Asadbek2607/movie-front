@@ -32,7 +32,7 @@ export default {
             })
         },
 
-        // Add movie to database and update movies list in store state 
+        // POST movie to database and update movies list in store state 
         addMovie(context, data) {
             return new Promise((resolve, reject) => {
                 axios.post('http://localhost:8505/api/movies', data)
@@ -44,7 +44,7 @@ export default {
                         resolve()
                     })
                     .catch((error) => {
-                        console.log('Error adding movie '+error)
+                        console.log('Error adding movie ' + error)
                         reject()
                     })
             })
@@ -54,21 +54,21 @@ export default {
             context.commit('setSuccessAlert', true)
         },
 
-        // get one movie by id 
+        // GET one movie by id 
         fetchMovie(context, movieId) {
             return new Promise((resolve, reject) => {
                 axios.get('http://localhost:8505/api/movies/' + movieId)
                     .then((response) => {
 
                         // create movie object to get movie data from response 
-                        let movie={
+                        let movie = {
                             id: response.data.id,
                             name: response.data.name,
                             description: response.data.description,
                             category: response.data.category,
                             year: response.data.year,
                             categoryName: response.data.category.name
-                            
+
                         }
                         console.log('Movie fetched successfully')
                         console.log(response.data)
@@ -77,14 +77,29 @@ export default {
                         resolve()
                     })
                     .catch((error) => {
-                        console.log('Error fetching movie '+error)
+                        console.log('Error fetching movie ' + error)
+                        reject()
+                    })
+            })
+        },
+        // DELETE one movie by id 
+        removeMovie(context, movieId) {
+            return new Promise((resolve, reject) => {
+                axios.delete('http://localhost:8505/api/movies/' + movieId)
+                    .then(() => {
+                        console.log('Movie deleted successfully')
+                        // fetchMovies after deleting movie to update movies list in store state 
+                        context.dispatch('fetchMovies');
+                        resolve()
+                    })
+                    .catch((error) => {
+                        console.log('Error deleting movie ' + error)
                         reject()
                     })
             })
         },
 
-
-        // Filter movies by name
+        // FILTER movies by name
         filterMoviesByName(context, name) {
             return new Promise((resolve, reject) => {
                 axios.get(`http://localhost:8505/api/movies?name=${name}`)
@@ -114,13 +129,21 @@ export default {
         updateMovies(state, movies) {
             state.movies = movies
         },
-        // Add movie to movies list in store state
+        // Add movie  
         addMovie(state, movie) {
             state.movie = movie
         },
         // Get one movie by id
         getMovie(state, movie) {
             state.movie = movie
+        },
+        // Delete movie from movies 
+        deleteMovie(state, movieId) {
+            // get movie index by id and delete it from movies list 
+            state.movies = state.movies.filter(movie => movie.id !== movieId)
+        },
+        setIsMovieDeleted(state, isMovieDeleted) {
+            state.isMovieDeleted = isMovieDeleted
         },
         // Update filtered movies list in store state
         updateFilteredMovies(state, filteredMovies) {
@@ -138,13 +161,14 @@ export default {
             totalItems: 0,
         },
         // Movie object to add to database 
-        movie:{
+        movie: {
             name: null,
             description: null,
             category: null,
             year: null,
-            
+
         },
+        isMovieDeleted: false,
         // Filtered movies list
         filteredMovies: {
             models: [],

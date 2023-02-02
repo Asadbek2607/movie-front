@@ -22,10 +22,10 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  Link
+                  Manage
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><router-link class="dropdown-item" to="/remove-movie">Remove Movie</router-link></li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li>
                     <hr class="dropdown-divider">
@@ -40,7 +40,7 @@
             <form class="d-flex" role="search" @submit.prevent="filterMovies">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
                 v-model="searchTerm">
-              <button class="btn btn-outline-light" type="submit">Search</button>
+              <button class="btn btn-outline-light" type="button" @click="filterMovies">Search</button>
             </form>
           </div>
         </div>
@@ -67,6 +67,7 @@ export default {
     ...mapActions(['fetchMovies', 'fetchCategories', 'filterMoviesByName']),
     filterMovies() {
       this.$store.dispatch('filterMoviesByName', this.searchTerm);
+
 
     }
   }

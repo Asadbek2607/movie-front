@@ -27,8 +27,8 @@
                     </div>
                     <button type="button" @click="submit" class="btn btn-dark mb-3 mx-auto">Add Movie</button>
                 </form>
-                <div class="alert alert-success mt-5" role="alert" v-if="showSuccessAlert">
-                    Movie added successfully—check it out!
+                <div class="alert alert-success position-fixed top-50 start-50 translate-middle" role="alert" v-if="showSuccessAlert">
+                    Movie added successfully!
                 </div>
             </div>
         </div>

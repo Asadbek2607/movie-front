@@ -2,7 +2,7 @@
   <div class="col mt-3 mb-4 rounded d-flex flex-wrap" style="background-color: #81878d;">
     <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-0 p-3 " v-for="movie of getMovies" :key="movie.id" >
       <div class="card h-100">
-        <img src="../../public/img/2.jpg" class="card-img-top" alt="Sherlock">
+        <img src="../../public/img/3.jpg" class="card-img-top" alt="Sherlock">
         <div class="card-body">
           <h5 class="card-title">{{ movie.name }}</h5>
           <div class="card-text" v-if="selectedMovie === movie.id" @mouseover="selectedMovie = movie.id"
@@ -18,7 +18,7 @@
             {{ movie.description + '... ' }}
           </div>
           <div  class="my-2 fs-6 fw-light">{{movie.year}} | {{movie.category.name}}</div>
-          <router-link :to="'/watch-movie/'+ movie.id" class="btn btn-primary">Watch</router-link>
+          <router-link :to="'/watch-movie/'+ movie.id" type="button" class="btn btn-primary">Watch</router-link>
         </div>
       </div>
     </div>
