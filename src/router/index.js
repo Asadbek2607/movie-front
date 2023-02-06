@@ -26,13 +26,13 @@ const router = createRouter({
         {
             path: '/login',
             name: 'Login page',
-            component: () => import('@/views/LoginPage.vue')
+            component: () => import('@/components/LoginRow.vue')
 
         },
         {
             path: '/add-movie',
             name: 'Add movie page',
-            component: () => import('@/views/AddMoviePage.vue')
+            component: () => import('@/components/AddMovie.vue')
 
         },
         {
