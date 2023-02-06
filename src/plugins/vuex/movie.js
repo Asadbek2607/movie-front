@@ -67,7 +67,7 @@ export default {
                             description: response.data.description,
                             category: response.data.category,
                             year: response.data.year,
-                            categoryName: response.data.category.name
+                            
 
                         }
                         console.log('Movie fetched successfully')
@@ -82,6 +82,27 @@ export default {
                     })
             })
         },
+        // PUT one movie by id
+        editMovie(context, data) {
+            return new Promise((resolve, reject) => {
+                axios.put(`http://localhost:8505/api/movies/${data.id}`, data)
+                    .then((response) => {
+                        console.log('Movie updated successfully')
+                        console.log(response.data)
+                        // commit updateMovie mutation and pass 'movie' object as payload
+                        context.commit('updateMovie', response.data)
+
+                        // fetchMovies after updating movie to update movies list in store state
+                        //context.dispatch('fetchMovies');
+                        resolve()
+                    })
+                    .catch((error) => {
+                        console.log('Error updating movie ' + error)
+                        reject()
+                    })
+            })
+        },
+        
         // DELETE one movie by id 
         removeMovie(context, movieId) {
             return new Promise((resolve, reject) => {
@@ -137,6 +158,10 @@ export default {
         getMovie(state, movie) {
             state.movie = movie
         },
+        updateMovie(state, movie) {
+            state.movie = movie
+        },
+       
         // Delete movie from movies 
         deleteMovie(state, movieId) {
             // get movie index by id and delete it from movies list 
@@ -166,8 +191,10 @@ export default {
             description: null,
             category: null,
             year: null,
+            
 
         },
+       
         isMovieDeleted: false,
         // Filtered movies list
         filteredMovies: {
@@ -184,6 +211,7 @@ export default {
         },
         getFilteredMovies(state) {
             return state.filteredMovies.models;
-        }
+        },
+        
     }
 }

@@ -17,7 +17,7 @@
           <div class="card-text" v-if="movie.description > 30">
             {{ movie.description + '... ' }}
           </div>
-          <div  class="my-2 fs-6 fw-light">{{movie.year}} | {{movie.category.name}}</div>
+          <div  class="my-2 fs-6 fw-light">{{movie.year}} | {{movie.category.name}} </div>
           <router-link :to="'/watch-movie/'+ movie.id" type="button" class="btn btn-primary">Watch</router-link>
         </div>
       </div>
