@@ -1,5 +1,5 @@
 <template>
-  <aside class="col-12 col-xl-2 p-0 mt-4">
+  <aside class="col-12 col-lg-3 col-xl-2 p-0 mt-4">
     <div class="list-group mx-1">
       <router-link 
         class="list-group-item list-group-item-action"

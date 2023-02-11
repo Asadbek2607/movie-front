@@ -1,7 +1,7 @@
 <template>
   <div class="row gap-1 gap-xl-0">
     <CategorySidebar/>
-    <main class="col-12 col-xl-10 p-0 mt-4">
+    <main class="col-12 col-lg-8 col-xl-10 p-0 mt-4">
 
       <div class="row m-0">
 

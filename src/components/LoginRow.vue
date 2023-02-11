@@ -1,7 +1,7 @@
 <template>
 
     <div class="row mt-5 justify-content-center ">
-        <div class="col-10 col-6 col-xl-4 p-5 rounded customBg">
+        <div class="col-10 col-md-6 col-lg-4 p-5 rounded customBg">
             <form @submit.prevent="auth" class="d-flex flex-column">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label text-white">Email</label>

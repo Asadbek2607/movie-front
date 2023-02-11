@@ -67,6 +67,7 @@ export default {
                             description: response.data.description,
                             category: response.data.category,
                             year: response.data.year,
+                            categoryName: response.data.category.name,
                             
 
                         }
@@ -109,6 +110,7 @@ export default {
                 axios.delete('http://localhost:8505/api/movies/' + movieId)
                     .then(() => {
                         console.log('Movie deleted successfully')
+                        
                         // fetchMovies after deleting movie to update movies list in store state 
                         context.dispatch('fetchMovies');
                         resolve()
@@ -191,6 +193,8 @@ export default {
             description: null,
             category: null,
             year: null,
+            categoryName: null,
+
             
 
         },

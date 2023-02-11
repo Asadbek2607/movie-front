@@ -1,6 +1,6 @@
 <template>
-    <div class="row mx-5 table-responsive mt-2">
-        <table class="table table-hover table-striped">
+    <div class="row mx-xs-0 mx-sm-1 mx-lg-5 mt-2">
+        <table class="col-12 col-sm-10 col-md-8 table table-hover table-striped">
             <thead class="table-dark">
                 <tr>
                     <th scope="col">Id</th>
@@ -17,7 +17,7 @@
                     <td>
                         <img src="../../public/img/3.jpg" alt="Picture Thumbnail 1" class="img-thumbnail" />
                     </td>
-                    <td>{{ movie.name }}</td>
+                    <td >{{ movie.name }}</td>
                     <td>{{ movie.year }}</td>
                     <td>{{ movie.category.name }}</td>
                     <td>
