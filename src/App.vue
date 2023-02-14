@@ -29,5 +29,7 @@ export default {
 </template>
 
 <style scoped>
-
+* {
+ font-weight: 400;
+}
 </style>

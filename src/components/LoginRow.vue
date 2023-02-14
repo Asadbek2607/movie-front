@@ -16,9 +16,8 @@
             </form>
         </div>
     </div>
-
-
-
+    
+    
 </template>
 
 <script>
@@ -53,6 +52,6 @@ export default {
 .customBg {
     background-color: #848B92;
     background-image: url("../../public/img/dark-denim-3.png");
-   
+
 }
 </style>
