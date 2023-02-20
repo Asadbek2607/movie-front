@@ -1,7 +1,7 @@
 <template>
     <div class="row mx-xs-0 mx-sm-1 mx-lg-5 mt-2">
-        <table class="col-12 col-sm-10 col-md-8 table table-hover table-striped">
-            <thead class="table-dark">
+        <table class="col-12 col-sm-10 col-md-8 table table-dark table-hover text-white">
+            <thead >
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Cover</th>
@@ -180,5 +180,10 @@ export default {
 <style scoped>
 td img {
     width: 80px;
+}
+
+.table:hover{
+    cursor: pointer;
+    
 }
 </style>

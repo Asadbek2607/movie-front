@@ -1,6 +1,6 @@
 <template>
 
-    <div class="row pb-3 watchMoveBg">
+    <div class="row pb-3 watchMovieBg bg-dark">
         <div class="col-3">
             <div class="card mt-3" style="width: 18rem;">
                 <img src="../../public/img/2.jpg" class="card-img-top" alt="Movie Poster">
@@ -47,8 +47,7 @@ export default {
 </script>
 
 <style scoped>
-.watchMoveBg {
-    background-color: #848B92;
+.watchMovieBg {
     background-image: url("../../public/img/dark-denim-3.png");
 }
 </style>

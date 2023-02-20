@@ -1,6 +1,6 @@
 <template>
   <div class="row mt-auto">
-    <footer class="col bg-secondary p-4 text-center text-white sticky-sm-bottom">
+    <footer class="col bg-dark p-4 text-center text-white sticky-sm-bottom border-top">
       All rights reserved &copy; 2022
     </footer>
   </div>

@@ -1,6 +1,6 @@
 <template>
     <div class="row justify-content-center">
-        <div class="col-8 m-3 customBg rounded">
+        <div class="col-8 m-3 customBg rounded bg-dark">
             <div class="container col-6 mt-5">
                 <form ref="form" @submit.prevent="submit" class="d-flex flex-column">
                     <div class="form-group mb-3">
@@ -25,7 +25,7 @@
                             </option>
                         </select>
                     </div>
-                    <button type="button" @click="submit" class="btn btn-dark mb-3 mx-auto">Add Movie</button>
+                    <button type="button" @click="submit" class="btn mb-3 mx-auto text-white" style="background-color: black;">Add Movie</button>
                 </form>
                 <div class="alert alert-success position-fixed top-50 start-50 translate-middle" role="alert" v-if="showSuccessAlert">
                     Movie added successfully!
@@ -90,7 +90,7 @@ export default {
 </script>
 <style scoped>
 .customBg {
-    background-color: #848B92;
+   
     background-image: url("../../public/img/dark-denim-3.png");
 
 }

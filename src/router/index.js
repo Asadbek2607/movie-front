@@ -30,6 +30,12 @@ const router = createRouter({
 
         },
         {
+            path: '/sign-up',
+            name: 'Sign up page',
+            component: () => import('@/components/SignUp.vue')
+
+        },
+        {
             path: '/add-movie',
             name: 'Add movie page',
             component: () => import('@/components/AddMovie.vue')

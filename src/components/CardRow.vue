@@ -1,5 +1,5 @@
 <template>
-    <div class="col mt-3 mb-4 rounded d-flex flex-wrap " style="background-color: #81878d;">
+    <div class="col mt-3 mb-4 rounded d-flex flex-wrap" style="background-color: #353A3E;" ><!--style="background-color: #81878d;-->
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-0 p-3 " v-for="movie of getMovies" :key="movie.id">
             <div class="card h-100">
                 <img src="../../public/img/3.jpg" class="card-img-top" alt="movie title">
@@ -41,12 +41,6 @@ import { mapActions, mapGetters } from "vuex";
 
 export default {
     name: "CardRow",
-
-    data() {
-        return {
-            selectedMovie: null,
-        }
-    },
     computed: {
         ...mapGetters(['getMovies', 'getCategories']),
     },

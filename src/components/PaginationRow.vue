@@ -18,10 +18,12 @@
 
 <script>
 export default {
-    name: "PaginationRow"
+    name: "PaginationRow",
+    
 }
+
+
 </script>
 
 <style scoped>
-
 </style>
