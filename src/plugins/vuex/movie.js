@@ -68,6 +68,8 @@ export default {
                             category: response.data.category,
                             year: response.data.year,
                             categoryName: response.data.category.name,
+                            rating: response.data.rating,
+                            cardImage: response.data.cardImage.filePath,
                             
 
                         }
@@ -193,7 +195,9 @@ export default {
             description: null,
             category: null,
             year: null,
+            rating: null,
             categoryName: null,
+            cardImage: null,
 
             
 

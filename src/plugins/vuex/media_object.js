@@ -31,22 +31,50 @@ export default {
             })
         },
 
+        fetchMovie(context, movieId) {
+            return new Promise((resolve, reject) => {
+              axios.get(`http://localhost:8505/api/movies/${movieId}`)
+                .then(response => {
+                  console.log('Movie fetched successfully')
+                  console.log(response)
+
+                  context.commit('setMovie', response.data)
+        
+                  // Set the movie's image
+                  context.commit('setCardImage', response.data.cardImage)
+        
+                  resolve()
+                })
+                .catch(error => {
+                  console.log('Error fetching movie ' + error)
+                  reject()
+                })
+            })
+        },
+
     },
     mutations: {
         uploadFile(state, cardImage) {
             state.cardImage = cardImage
         },
+        setCardImage(state, cardImage) {
+            state.oneCardImage = cardImage
+          },
 
     },
     state: {
         cardImage:{
             cardImageId: null
-        }
+        },
+        oneCardImage: null,
     },
     getters: {
         getFile(state) {
             return state.cardImage
-        }
+        },
+        getCardImage(state) {
+            return state.oneCardImage
+          },
 
     }
 }

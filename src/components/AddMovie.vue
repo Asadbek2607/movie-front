@@ -88,6 +88,7 @@ export default {
                         category: '',
                         year: ''
                     }
+                    this.$refs.form.reset();
                 })
                 .catch(() => {
                     alert('Error adding movie')

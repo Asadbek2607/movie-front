@@ -54,7 +54,7 @@
             </nav>
         </header> -->
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0 fixed-top border-bottom">
             <!-- Container wrapper -->
             <div class="container-fluid">
                 <!-- Navbar brand -->

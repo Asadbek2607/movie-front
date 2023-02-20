@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid d-flex flex-column bg-dark min-vh-100">
+  <div class="container-fluid d-flex flex-column bg-dark min-vh-100 mt-5">
 
     <HeaderRow/>
       <RouterView/>

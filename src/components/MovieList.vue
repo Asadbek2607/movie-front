@@ -15,7 +15,7 @@
                 <tr v-for="movie in getMovies" :key="movie.id">
                     <th scope="row">{{ movie.id }}</th>
                     <td>
-                        <img src="../../public/img/3.jpg" alt="Picture Thumbnail 1" class="img-thumbnail" />
+                        <img :src="'http://localhost:8505'+'/media/'+ movie.cardImage.filePath" alt="Picture Thumbnail 1" class="img-thumbnail" />
                     </td>
                     <td >{{ movie.name }}</td>
                     <td>{{ movie.year }}</td>
