@@ -74,7 +74,7 @@
                         <!-- Home btn -->
                         <router-link class="nav-link active text-white" aria-current="page" to="/">Home</router-link>
                         <!-- Dropdown -->
-                        <div v-if="isLoggedIn" class="nav-item dropdown w-25">
+                        <div v-if="!isLoggedIn" class="nav-item dropdown w-25">
                             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 Manage
@@ -128,7 +128,7 @@ export default {
     data() {
         return {
             searchTerm: "",
-            isLoggedIn: localStorage.getItem('token'),
+            isLoggedIn: false,
         };
     },
     computed: {

@@ -2,7 +2,7 @@
     <div class="col mt-3 mb-4 rounded d-flex flex-wrap" style="background-color: #353A3E;" ><!--style="background-color: #81878d;-->
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-0 p-3 " v-for="movie of getMovies" :key="movie.id">
             <div class="card h-100">
-                <img src="../../public/img/3.jpg" class="card-img-top" alt="movie title">
+                <img :src="'http://localhost:8505'+'/media/'+ movie.cardImage.filePath" class="card-img-top" alt="movie title">
                 <div class="card-body">
                     <h5 class="card-title">{{ movie.name }}</h5>
                     <div class="my-2 fs-6 fw-light">{{ movie.year }} | {{ movie.category.name }} | 4.7 <svg
@@ -54,6 +54,7 @@ export default {
     },
     mounted() {
         console.log(this.getMovies, 'Kinolar')
+        console.log()
         this.fetchMovies()
     }
 }
