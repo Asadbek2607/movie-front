@@ -1,7 +1,7 @@
 <template>
     <div class="col mt-3 mb-4 rounded d-flex flex-wrap" style="background-color: #353A3E;" ><!--style="background-color: #81878d;-->
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-0 p-3 " v-for="movie of getMovies" :key="movie.id">
-            <div class="card h-100">
+            <div class="card h-100 bg-dark text-white border-secondary">
                 <img :src="'http://localhost:8505'+'/media/'+ movie.cardImage.filePath" class="card-img-top" alt="movie title">
                 <div class="card-body">
                     <h5 class="card-title">{{ movie.name }}</h5>
@@ -13,8 +13,8 @@
                         </svg> </div>
                 </div>
                 <div class="d-flex flex-column">
-                    <router-link :to="'/watch-movie/' + movie.id" type="button" class="btn btn-dark mx-4 text-light">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" class="bi bi-plus"
+                    <router-link :to="'/watch-movie/' + movie.id" type="button" class="btn btn-light mx-4 text-dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000" class="bi bi-plus"
                             viewBox="0 0 16 16">
                             <path
                                 d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
@@ -22,8 +22,8 @@
                         Watchlist
                     </router-link>
                     <router-link :to="'/watch-movie/' + movie.id" type="button"
-                        class="btn btn-outline-dark  mx-5 mt-1 mb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="btn btn-dark text-light mx-auto mt-1 mb-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff"
                             class="bi bi-play-fill" viewBox="0 0 16 16">
                             <path
                                 d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />

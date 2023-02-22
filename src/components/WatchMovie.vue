@@ -2,7 +2,7 @@
 
     <div class="row pb-3 watchMovieBg bg-dark">
         <div class="col-3">
-            <div class="card mt-3" style="width: 20rem;">
+            <div class="card mt-3 bg-dark text-light" style="width: 20rem;">
                 <img :src="'http://localhost:8505/media/' + getMovie.cardImage" class="card-img-top " alt="movie title">
                 <div class="card-body">
                     <h5 class="card-title">{{ getMovie.name }} </h5>

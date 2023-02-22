@@ -1,5 +1,5 @@
 <template><!-- Header section -->
-    <div class="row border-bottom">
+    <div class="row ">
         <!--<header class="header p-0">
             <nav class="navbar navbar-expand-lg bg-secondary">
                 <div class="container-fluid">
@@ -152,6 +152,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 .dropdown-menu[data-bs-popper] {
     left: -55px;
 }
